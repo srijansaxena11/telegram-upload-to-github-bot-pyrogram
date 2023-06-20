@@ -52,7 +52,7 @@ async def handle_file_upload(client, message):
             await message.reply_text(f"File downloaded successfully. Now uploading to Github Repository: {github_repo_name}")
             file_name = file_path.split("/")[-1]
 
-            release = repo.get_release("latest")
+            release = repo.get_release(github_repo_release_tag_name)
 
             release.upload_asset(
                 path=file_path,
